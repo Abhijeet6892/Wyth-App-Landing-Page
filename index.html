@@ -522,7 +522,7 @@
       Not a swipe app.<br/>Not a biodata.<br/><span class="grad">Something better.</span>
     </h1>
 
-    <p class="hero-sub">Not a DATING APP. A space for REAL INTENTIONS</p>
+    <p class="hero-sub">Not a dating app. A space for real intentions.</p>
 
     <div class="hero-actions">
       <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
@@ -722,9 +722,14 @@
     }, { threshold: 0.07 });
     allReveal.forEach(el => obs.observe(el));
 
+    // Supabase config
+    const SUPABASE_URL = 'https://cujxpvoiubxeuksjazln.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_wwtsJRqnSSA4rH9qk1NEhA_JigW0X-v';
+
     // Waitlist form
-    function handleSubmit() {
+    async function handleSubmit() {
       const firstName = document.getElementById('firstName').value.trim();
+      const lastName  = document.getElementById('lastName').value.trim();
       const email     = document.getElementById('email').value.trim();
       const phone     = document.getElementById('phone').value.trim();
       const city      = document.getElementById('city').value;
@@ -738,12 +743,39 @@
         return;
       }
 
-      // TODO: wire to your backend / Supabase waitlist table
-      console.log('Waitlist signup:', { firstName, email, phone, city });
+      const btn = document.querySelector('.form-submit');
+      btn.textContent = 'Saving...';
+      btn.disabled = true;
 
-      document.getElementById('formWrapper').style.display = 'none';
-      document.getElementById('successState').style.display = 'block';
-      document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth' });
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/waitlist`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'apikey': SUPABASE_KEY,
+            'Authorization': `Bearer ${SUPABASE_KEY}`,
+            'Prefer': 'return=minimal'
+          },
+          body: JSON.stringify({
+            first_name: firstName,
+            last_name: lastName,
+            email: email,
+            phone: phone,
+            city: city
+          })
+        });
+
+        if (!res.ok) throw new Error('Submission failed');
+
+        document.getElementById('formWrapper').style.display = 'none';
+        document.getElementById('successState').style.display = 'block';
+        document.getElementById('waitlist').scrollIntoView({ behavior: 'smooth' });
+
+      } catch (err) {
+        alert('Something went wrong. Please try again.');
+        btn.textContent = 'Reserve My Spot →';
+        btn.disabled = false;
+      }
     }
 
     // Allow Enter key to submit form
