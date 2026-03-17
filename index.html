@@ -88,8 +88,107 @@
       cursor: pointer; text-decoration: none;
       box-shadow: 0 4px 14px rgba(30,58,138,0.28);
       transition: transform 0.2s, box-shadow 0.2s; white-space: nowrap;
+      display: inline-flex; align-items: center; gap: 7px;
     }
     .btn-nav-cta:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(30,58,138,0.40); }
+    .btn-nav-cta .spots-left {
+      background: rgba(255,255,255,0.22); border-radius: 100px;
+      padding: 1px 7px; font-size: 10px; font-weight: 800; letter-spacing: 0.5px;
+    }
+    .btn-nav-cta .spots-left {
+      background: rgba(255,255,255,0.22); border-radius: 100px;
+      padding: 1px 7px; font-size: 10px; font-weight: 800; letter-spacing: 0.5px;
+    }
+
+    /* ─── FEATURES SECTION ─── */
+    .features-section {
+      padding: 80px 24px 56px; position: relative; z-index: 1;
+    }
+    .features-label {
+      text-align: center; font-size: 10px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 3px; color: var(--navy);
+      margin-bottom: 14px; opacity: 0.7;
+    }
+    .features-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(24px, 4.5vw, 38px);
+      font-weight: 800; color: var(--navy); text-align: center;
+      margin-bottom: 52px; letter-spacing: -0.8px; line-height: 1.15;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 1020px;
+      margin: 0 auto;
+    }
+    .feat-card {
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255,255,255,0.60);
+      border-radius: 24px;
+      padding: 28px 26px 26px;
+      box-shadow: 0 4px 24px rgba(30,58,138,0.07);
+      position: relative; overflow: hidden;
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.65s ease, transform 0.65s ease,
+                  box-shadow 0.25s ease, border-color 0.25s ease;
+      cursor: default;
+    }
+    .feat-card.visible { opacity: 1; transform: translateY(0); }
+    .feat-card:hover {
+      box-shadow: 0 16px 48px rgba(30,58,138,0.14);
+      border-color: rgba(30,58,138,0.22);
+      transform: translateY(-4px) !important;
+    }
+    .feat-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(30,58,138,0.3), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .feat-card:hover::before { opacity: 1; }
+    .feat-icon {
+      font-size: 28px; margin-bottom: 16px; display: block;
+      filter: drop-shadow(0 2px 8px rgba(30,58,138,0.15));
+    }
+    .feat-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px; font-weight: 800; color: var(--navy);
+      margin-bottom: 10px; line-height: 1.3; letter-spacing: -0.3px;
+    }
+    .feat-desc {
+      font-size: 13.5px; color: var(--s500); line-height: 1.65; font-weight: 400;
+    }
+    .feat-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 16px;
+      background: rgba(30,58,138,0.07); border: 1px solid rgba(30,58,138,0.14);
+      border-radius: 100px; padding: 3px 10px;
+      font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--navy);
+    }
+    .feat-tag.soon {
+      background: rgba(245,158,11,0.08); border-color: rgba(245,158,11,0.25);
+      color: #b45309;
+    }
+    .feat-tag-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: currentColor; animation: pulse 2s ease infinite;
+    }
+    /* Featured card — slightly taller accent */
+    .feat-card.feat-featured {
+      background: linear-gradient(135deg, rgba(255,255,255,0.90), rgba(219,234,254,0.75));
+      border-color: rgba(30,58,138,0.20);
+    }
+
+    @media (max-width: 820px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .features-grid { grid-template-columns: 1fr; }
+    }
 
     @keyframes pulse {
       0%,100% { opacity: 1; transform: scale(1); }
@@ -412,6 +511,254 @@
     .step-title { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 700; color: var(--navy); margin-bottom: 3px; }
     .step-desc { font-size: 12.5px; color: var(--s500); line-height: 1.6; }
 
+
+    /* ─── FEATURES SECTION ─── */
+    .features-section {
+      padding: 80px 24px 56px; position: relative; z-index: 1;
+    }
+    .features-label {
+      text-align: center; font-size: 10px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 3px; color: var(--navy);
+      margin-bottom: 14px; opacity: 0.7;
+    }
+    .features-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(24px, 4.5vw, 38px);
+      font-weight: 800; color: var(--navy); text-align: center;
+      margin-bottom: 52px; letter-spacing: -0.8px; line-height: 1.15;
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      max-width: 1020px;
+      margin: 0 auto;
+    }
+    .feat-card {
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(255,255,255,0.60);
+      border-radius: 24px;
+      padding: 28px 26px 26px;
+      box-shadow: 0 4px 24px rgba(30,58,138,0.07);
+      position: relative; overflow: hidden;
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.65s ease, transform 0.65s ease,
+                  box-shadow 0.25s ease, border-color 0.25s ease;
+      cursor: default;
+    }
+    .feat-card.visible { opacity: 1; transform: translateY(0); }
+    .feat-card:hover {
+      box-shadow: 0 16px 48px rgba(30,58,138,0.14);
+      border-color: rgba(30,58,138,0.22);
+      transform: translateY(-4px) !important;
+    }
+    .feat-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(30,58,138,0.35), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .feat-card:hover::before { opacity: 1; }
+    .feat-icon {
+      font-size: 28px; margin-bottom: 16px; display: block;
+      filter: drop-shadow(0 2px 8px rgba(30,58,138,0.15));
+    }
+    .feat-title {
+      font-family: 'Syne', sans-serif;
+      font-size: 16px; font-weight: 800; color: var(--navy);
+      margin-bottom: 10px; line-height: 1.3; letter-spacing: -0.3px;
+    }
+    .feat-desc {
+      font-size: 13.5px; color: var(--s500); line-height: 1.65; font-weight: 400;
+    }
+    .feat-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 16px;
+      background: rgba(30,58,138,0.07); border: 1px solid rgba(30,58,138,0.14);
+      border-radius: 100px; padding: 3px 10px;
+      font-size: 10px; font-weight: 800; text-transform: uppercase;
+      letter-spacing: 1.5px; color: var(--navy);
+    }
+    .feat-tag.soon {
+      background: rgba(245,158,11,0.08); border-color: rgba(245,158,11,0.25);
+      color: #b45309;
+    }
+    .feat-tag-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: currentColor; animation: pulse 2s ease infinite;
+    }
+    .feat-card.feat-featured {
+      background: linear-gradient(135deg, rgba(255,255,255,0.90), rgba(219,234,254,0.75));
+      border-color: rgba(30,58,138,0.18);
+    }
+    @media (max-width: 820px) {
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 520px) {
+      .features-grid { grid-template-columns: 1fr; }
+    }
+
+
+    /* ─── JOURNEY TIMELINE ─── */
+    .timeline-section {
+      padding: 80px 24px 80px;
+      position: relative; z-index: 1;
+    }
+    .timeline-label {
+      text-align: center; font-size: 10px; font-weight: 800;
+      text-transform: uppercase; letter-spacing: 3px; color: var(--navy);
+      margin-bottom: 14px; opacity: 0.7;
+    }
+    .timeline-title {
+      font-family: 'Syne', sans-serif;
+      font-size: clamp(24px, 4.5vw, 38px);
+      font-weight: 800; color: var(--navy); text-align: center;
+      margin-bottom: 16px; letter-spacing: -0.8px; line-height: 1.15;
+    }
+    .timeline-sub {
+      text-align: center; font-size: 15px; color: var(--s500);
+      max-width: 480px; margin: 0 auto 60px; line-height: 1.65;
+    }
+
+    /* Horizontal track */
+    .timeline-track {
+      max-width: 960px; margin: 0 auto;
+      position: relative;
+    }
+    /* Connecting line */
+    .timeline-track::before {
+      content: '';
+      position: absolute;
+      top: 28px; left: 60px; right: 60px; height: 2px;
+      background: linear-gradient(90deg,
+        rgba(30,58,138,0.12) 0%,
+        rgba(37,99,235,0.35) 50%,
+        rgba(30,58,138,0.12) 100%
+      );
+      z-index: 0;
+    }
+
+    .timeline-dots {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative; z-index: 1;
+      gap: 8px;
+    }
+
+    .tl-step {
+      display: flex; flex-direction: column; align-items: center;
+      flex: 1; text-align: center;
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .tl-step.visible { opacity: 1; transform: translateY(0); }
+
+    /* The dot */
+    .tl-dot-wrap {
+      position: relative; margin-bottom: 20px;
+    }
+    .tl-dot {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 2px solid rgba(30,58,138,0.18);
+      box-shadow: 0 4px 20px rgba(30,58,138,0.10);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+      cursor: default;
+    }
+    .tl-step:hover .tl-dot {
+      transform: scale(1.12);
+      box-shadow: 0 8px 32px rgba(30,58,138,0.20);
+      border-color: rgba(30,58,138,0.35);
+    }
+    /* Active/featured dot */
+    .tl-step.tl-featured .tl-dot {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-color: transparent;
+      box-shadow: 0 8px 28px rgba(30,58,138,0.32);
+    }
+    /* Pulse ring on featured */
+    .tl-step.tl-featured .tl-dot::after {
+      content: '';
+      position: absolute; inset: -6px;
+      border-radius: 50%;
+      border: 2px solid rgba(37,99,235,0.25);
+      animation: ringPulse 2.5s ease-in-out infinite;
+    }
+    @keyframes ringPulse {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.15); opacity: 0; }
+    }
+
+    .tl-dot-number {
+      position: absolute; top: -8px; right: -4px;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: white; font-size: 9px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 2px 8px rgba(30,58,138,0.3);
+      font-family: 'Syne', sans-serif;
+    }
+
+    .tl-label {
+      font-family: 'Syne', sans-serif;
+      font-size: 13px; font-weight: 800; color: var(--navy);
+      margin-bottom: 6px; line-height: 1.3; letter-spacing: -0.2px;
+    }
+    .tl-desc {
+      font-size: 11.5px; color: var(--s400);
+      line-height: 1.55; max-width: 120px; margin: 0 auto;
+    }
+    .tl-step.tl-featured .tl-label { color: var(--blue); }
+
+    /* Outcome card at the end */
+    .timeline-outcome {
+      max-width: 560px; margin: 52px auto 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.88), rgba(219,234,254,0.70));
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border: 1.5px solid rgba(30,58,138,0.18);
+      border-radius: 24px; padding: 32px 36px;
+      box-shadow: 0 8px 40px rgba(30,58,138,0.10);
+      text-align: center; position: relative; overflow: hidden;
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.7s ease 0.4s, transform 0.7s ease 0.4s;
+    }
+    .timeline-outcome::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--navy), var(--blue2), var(--navy));
+    }
+    .timeline-outcome.visible { opacity: 1; transform: translateY(0); }
+    .outcome-emoji { font-size: 36px; margin-bottom: 12px; display: block; }
+    .outcome-title {
+      font-family: 'Syne', sans-serif; font-size: clamp(18px, 3vw, 24px);
+      font-weight: 800; color: var(--navy); margin-bottom: 8px; letter-spacing: -0.5px;
+    }
+    .outcome-desc { font-size: 14px; color: var(--s500); line-height: 1.65; }
+
+    /* Mobile: stack vertically */
+    @media (max-width: 680px) {
+      .timeline-track::before { display: none; }
+      .timeline-dots {
+        flex-direction: column; align-items: center; gap: 8px;
+      }
+      .tl-step { flex-direction: row; text-align: left; gap: 18px; width: 100%; max-width: 340px; }
+      .tl-dot-wrap { margin-bottom: 0; flex-shrink: 0; }
+      .tl-label { margin-bottom: 4px; }
+      .tl-desc { max-width: none; }
+      /* Vertical line instead */
+      .timeline-dots::before {
+        content: '';
+        position: absolute; left: 27px; top: 28px; bottom: 28px; width: 2px;
+        background: linear-gradient(180deg, rgba(30,58,138,0.12), rgba(37,99,235,0.35), rgba(30,58,138,0.12));
+      }
+    }
+
     /* ─── ANIMATIONS ─── */
     @keyframes fadeUp { from { opacity: 0; transform: translateY(22px); } to { opacity: 1; transform: translateY(0); } }
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
@@ -462,7 +809,7 @@
         <span class="rlabel">Join Research</span>
         🔬
       </a>
-      <a href="#waitlist" class="btn-nav-cta">Get Access</a>
+      <a href="https://wyth-app.vercel.app/" class="btn-nav-cta" onclick="handleAppLink(event)">Join First 100 <span class="spots-left">✦ Limited</span></a>
     </div>
   </nav>
 
@@ -519,33 +866,82 @@
     </svg>
 
     <h1 class="hero-tagline">
-      Not a swipe app.<br/>Not a biodata.<br/><span class="grad">Something better.</span>
+      Meet your person.<br/><span class="grad">Mean it.</span>
     </h1>
 
     <p class="hero-sub">Not a dating app. A space for real intentions.</p>
 
     <div class="hero-actions">
-      <a href="#waitlist" class="btn-primary">Join the Waitlist</a>
+      <a href="https://wyth-app.vercel.app/" class="btn-primary" onclick="handleAppLink(event)">Join First 100 →</a>
       <button class="btn-ghost" onclick="openModal()">How it works ↗</button>
     </div>
 
-    <div class="scroll-hint" onclick="document.querySelector('.pills-section').scrollIntoView({behavior:'smooth'})">
+    <div class="scroll-hint" onclick="document.querySelector('.features-section').scrollIntoView({behavior:'smooth'})">
       <span>scroll</span>
       <div class="scroll-arrow"></div>
     </div>
   </div>
 
   <!-- ─── PILLS ─── -->
-  <div class="pills-section">
-    <div class="pills-row">
-      <div class="pill pill-dark"><span class="pill-icon">⧖</span> 3 connections. That's it. Make them Count.</div>
-      <div class="pill pill-outline"><span class="pill-icon">◈</span> Community Vouching — Real Trust, Real People</div>
-      <div class="pill"><span class="pill-icon">⌖</span> Same intent. Same page. Zero Confusion.</div>
-      <div class="pill pill-dark"><span class="pill-icon">∅</span> No Biodata. No resume. Just you.</div>
-      <div class="pill"><span class="pill-icon">⚡</span> AI-powered, from Day One</div>
-      <div class="pill pill-outline"><span class="pill-icon">◎</span> Designed to close with Dignity</div>
+
+
+  <!-- ─── FEATURES ─── -->
+  <section class="features-section" id="features">
+    <div class="features-label">Why WYTH works</div>
+    <h2 class="features-title">Different by design.</h2>
+
+    <div class="features-grid">
+
+      <!-- Card 1: Weekly Prompt -->
+      <div class="feat-card reveal feat-featured">
+        <span class="feat-icon">✦</span>
+        <div class="feat-title">One question. Better matches.</div>
+        <p class="feat-desc">Every week WYTH asks one honest question. Your answer seeds the algorithm — not your photos, not your height. What you actually believe.</p>
+        <span class="feat-tag"><span class="feat-tag-dot"></span>Live now</span>
+      </div>
+
+      <!-- Card 2: Resonate -->
+      <div class="feat-card reveal">
+        <span class="feat-icon">💫</span>
+        <div class="feat-title">Resonate, don't swipe.</div>
+        <p class="feat-desc">Swiping is about faces. Resonating is about values. When someone's answer moves you, you resonate. That signal tells the algorithm you found something real.</p>
+        <span class="feat-tag"><span class="feat-tag-dot"></span>Live now</span>
+      </div>
+
+      <!-- Card 3: 3 Slots -->
+      <div class="feat-card reveal feat-featured">
+        <span class="feat-icon">⚡</span>
+        <div class="feat-title">3 slots. That's it.</div>
+        <p class="feat-desc">You get 3 connection requests. Not 300. A slot returns only when a connection closes. Scarcity is permanent — every choice has to mean something.</p>
+        <span class="feat-tag"><span class="feat-tag-dot"></span>Live now</span>
+      </div>
+
+      <!-- Card 4: Intent feed -->
+      <div class="feat-card reveal">
+        <span class="feat-icon">🎯</span>
+        <div class="feat-title">Your intent. Your feed.</div>
+        <p class="feat-desc">Exploring, Dating with Intent, or Ready for Marriage. Declare it once. Your feed only shows people who want the same thing. No mixed signals before hello.</p>
+        <span class="feat-tag"><span class="feat-tag-dot"></span>Live now</span>
+      </div>
+
+      <!-- Card 5: Feed as living profile -->
+      <div class="feat-card reveal">
+        <span class="feat-icon">📸</span>
+        <div class="feat-title">Show up, not just show off.</div>
+        <p class="feat-desc">Post your achievements, travels, moments. On WYTH your feed isn't for followers — it's seen by people the algorithm thinks could be right for you. Every post makes your match smarter.</p>
+        <span class="feat-tag"><span class="feat-tag-dot"></span>Live now</span>
+      </div>
+
+      <!-- Card 6: Introduction -->
+      <div class="feat-card reveal feat-featured">
+        <span class="feat-icon">🤝</span>
+        <div class="feat-title">The Introduction.</div>
+        <p class="feat-desc">When the algorithm finds a near-perfect match, it asks them a question on your behalf. No awkward opener. No ghosting. One honest answer — then your move.</p>
+        <span class="feat-tag soon">Coming soon</span>
+      </div>
+
     </div>
-  </div>
+  </section>
 
   <!-- ─── VS ─── -->
   <div class="vs-section">
@@ -590,6 +986,71 @@
       </div>
     </div>
   </div>
+
+
+  <!-- ─── JOURNEY TIMELINE ─── -->
+  <section class="timeline-section" id="journey">
+    <div class="timeline-label">Your journey on WYTH</div>
+    <h2 class="timeline-title">From hello to forever.</h2>
+    <p class="timeline-sub">No timelines. No pressure. Just a process designed to work — for people who mean it.</p>
+
+    <div class="timeline-track">
+      <div class="timeline-dots">
+
+        <div class="tl-step reveal">
+          <div class="tl-dot-wrap">
+            <div class="tl-dot">✦</div>
+            <div class="tl-dot-number">1</div>
+          </div>
+          <div class="tl-label">You arrive.</div>
+          <p class="tl-desc">Declare your intent. Answer the weekly prompt. The algorithm starts learning you.</p>
+        </div>
+
+        <div class="tl-step reveal">
+          <div class="tl-dot-wrap">
+            <div class="tl-dot">💫</div>
+            <div class="tl-dot-number">2</div>
+          </div>
+          <div class="tl-label">You resonate.</div>
+          <p class="tl-desc">Someone's answer moves you. You resonate. The algorithm notices. Your feed sharpens.</p>
+        </div>
+
+        <div class="tl-step tl-featured reveal">
+          <div class="tl-dot-wrap">
+            <div class="tl-dot" style="color:white;">⚡</div>
+            <div class="tl-dot-number">3</div>
+          </div>
+          <div class="tl-label">You connect.</div>
+          <p class="tl-desc">You spend a slot. A personal note. A real beginning — not a swipe, a choice.</p>
+        </div>
+
+        <div class="tl-step reveal">
+          <div class="tl-dot-wrap">
+            <div class="tl-dot">🤝</div>
+            <div class="tl-dot-number">4</div>
+          </div>
+          <div class="tl-label">The Introduction.</div>
+          <p class="tl-desc">WYTH asks them something on your behalf. One honest answer. Then your move.</p>
+        </div>
+
+        <div class="tl-step reveal">
+          <div class="tl-dot-wrap">
+            <div class="tl-dot">❤️</div>
+            <div class="tl-dot-number">5</div>
+          </div>
+          <div class="tl-label">It becomes real.</div>
+          <p class="tl-desc">A slot becomes a relationship. The app steps back. You take it from here.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="timeline-outcome reveal">
+      <span class="outcome-emoji">🌿</span>
+      <div class="outcome-title">And then, WYTH Together.</div>
+      <p class="outcome-desc">When you find your person, WYTH doesn't disappear. It transitions into a shared space — milestones, memories, your story. Designed to last, not to keep you scrolling.</p>
+    </div>
+  </section>
 
   <!-- ─── WAITLIST ─── -->
   <div id="waitlist" class="waitlist-section">
@@ -704,6 +1165,14 @@
   </div>
 
   <script>
+    // Hidden app link — opens the app without showing the URL in nav
+    function handleAppLink(e) {
+      e.preventDefault();
+      // Encode destination to avoid it showing in browser bar on hover
+      const dest = atob('aHR0cHM6Ly93eXRoLWFwcC52ZXJjZWwuYXBwLw==');
+      window.open(dest, '_blank', 'noopener,noreferrer');
+    }
+
     // Modal
     function openModal()  { document.getElementById('modalOverlay').classList.add('open'); document.body.style.overflow = 'hidden'; }
     function closeModal() { document.getElementById('modalOverlay').classList.remove('open'); document.body.style.overflow = ''; }
