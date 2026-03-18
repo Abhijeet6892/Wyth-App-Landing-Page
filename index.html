@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WYTH — Dating, but make it intentional.</title>
+  <title>WYTH — Find your person. Mean it.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -330,11 +330,15 @@
     .vs-title {
       font-family: 'Syne', sans-serif; font-size: clamp(22px,4vw,36px);
       font-weight: 800; color: var(--navy); text-align: center;
-      margin-bottom: 36px; letter-spacing: -0.5px;
+      margin-bottom: 10px; letter-spacing: -0.5px;
+    }
+    .vs-sub {
+      font-size: 15px; color: var(--s500); text-align: center;
+      margin-bottom: 36px; line-height: 1.6;
     }
     .vs-grid {
-      display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px;
-      max-width: 820px; margin: 0 auto; align-items: center;
+      display: grid; grid-template-columns: 1fr 1.1fr 1fr; gap: 14px;
+      max-width: 1000px; margin: 0 auto; align-items: start;
     }
     .vs-card {
       background: rgba(255,255,255,0.72); backdrop-filter: blur(16px);
@@ -344,17 +348,26 @@
     .vs-card.them { border-color: rgba(239,68,68,0.15); }
     .vs-card.us {
       border-color: rgba(30,58,138,0.22);
-      background: linear-gradient(135deg, rgba(255,255,255,0.88), rgba(219,234,254,0.68));
+      background: linear-gradient(135deg, rgba(255,255,255,0.92), rgba(219,234,254,0.75));
+      box-shadow: 0 8px 32px rgba(30,58,138,0.12);
     }
-    .vs-card-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 14px; }
+    .vs-card-center {
+      transform: translateY(-6px);
+    }
+    .vs-card-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; }
+    .vs-card-sub { font-size: 10px; color: var(--s400); font-weight: 600; margin-bottom: 14px; letter-spacing: 0.5px; }
     .vs-card.them .vs-card-label { color: #dc2626; }
-    .vs-card.us .vs-card-label { color: var(--navy); }
+    .vs-card.us .vs-card-label { color: var(--navy); font-size: 13px; margin-bottom: 14px; }
     .vs-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
     .vs-list li { font-size: 13px; color: var(--s600); line-height: 1.45; }
     .vs-card.us .vs-list li { color: var(--s800); font-weight: 500; }
     .vs-badge {
       font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 900;
       color: var(--navy); text-align: center; padding: 0 6px; letter-spacing: -1px;
+    }
+    @media (max-width: 700px) {
+      .vs-grid { grid-template-columns: 1fr; }
+      .vs-card-center { transform: none; }
     }
 
     /* ─── RESEARCH ─── */
@@ -462,6 +475,10 @@
       flex-wrap: wrap; gap: 12px; position: relative; z-index: 1;
     }
     .footer-logo { width: 64px; opacity: 0.45; }
+    .footer-tagline {
+      font-family: 'Syne', sans-serif; font-size: 12px; font-weight: 700;
+      color: rgba(100,116,139,0.55); letter-spacing: 0.5px;
+    }
     .footer-copy { font-size: 12px; color: rgba(100,116,139,0.50); }
     .footer-ig {
       display: inline-flex; align-items: center; gap: 7px;
@@ -817,7 +834,7 @@
   <div class="hero">
     <div class="launch-pill">
       <span class="fire">🔥</span>
-      Launching Soon
+      Now Live in India
       <span class="soon-badge">INDIA</span>
     </div>
 
@@ -866,14 +883,14 @@
     </svg>
 
     <h1 class="hero-tagline">
-      Meet your person.<br/><span class="grad">Mean it.</span>
+      You're not looking<br/><span class="grad">for a talking stage.</span>
     </h1>
 
-    <p class="hero-sub">Not a dating app. A space for real intentions.</p>
+    <p class="hero-sub">WYTH is for people who are ready — to be honest about what they want, and to find someone who wants the same thing.</p>
 
     <div class="hero-actions">
-      <a href="https://wyth-app.vercel.app/" class="btn-primary" onclick="handleAppLink(event)">Join First 100 →</a>
-      <button class="btn-ghost" onclick="openModal()">How it works ↗</button>
+      <a href="https://wyth-app.vercel.app/" class="btn-primary" onclick="handleAppLink(event)">I'm ready. Let me in →</a>
+      <button class="btn-ghost" onclick="openModal()">See how it works ↗</button>
     </div>
 
     <div class="scroll-hint" onclick="document.querySelector('.features-section').scrollIntoView({behavior:'smooth'})">
@@ -887,48 +904,48 @@
 
   <!-- ─── FEATURES ─── -->
   <section class="features-section" id="features">
-    <div class="features-label">Why WYTH works</div>
-    <h2 class="features-title">Different by design.</h2>
+    <div class="features-label">What makes WYTH different</div>
+    <h2 class="features-title">Built for people who mean it.</h2>
 
     <div class="features-grid">
 
       <!-- Card 1: Weekly Prompt -->
       <div class="feat-card reveal feat-featured">
         <span class="feat-icon">✦</span>
-        <div class="feat-title">One question. Better matches.</div>
-        <p class="feat-desc">Every week WYTH asks one honest question. Your answer seeds the algorithm — not your photos, not your height. What you actually believe.</p>
+        <div class="feat-title">One honest question. Every week.</div>
+        <p class="feat-desc">WYTH asks something real. Your answer is how the algorithm finds people who think like you — not by your photos or your job title, but by what you actually believe.</p>
         <span class="feat-tag"><span class="feat-tag-dot"></span>Live now</span>
       </div>
 
       <!-- Card 2: Resonate -->
       <div class="feat-card reveal">
         <span class="feat-icon">💫</span>
-        <div class="feat-title">Resonate, don't swipe.</div>
-        <p class="feat-desc">Swiping is about faces. Resonating is about values. When someone's answer moves you, you resonate. That signal tells the algorithm you found something real.</p>
+        <div class="feat-title">You resonate. Not swipe.</div>
+        <p class="feat-desc">When someone's answer moves you, you resonate. That's the signal. No faces, no split-second judgment. Just: does this person's world make sense to yours?</p>
         <span class="feat-tag"><span class="feat-tag-dot"></span>Live now</span>
       </div>
 
       <!-- Card 3: 3 Slots -->
       <div class="feat-card reveal feat-featured">
         <span class="feat-icon">⚡</span>
-        <div class="feat-title">3 slots. That's it.</div>
-        <p class="feat-desc">You get 3 connection requests. Not 300. A slot returns only when a connection closes. Scarcity is permanent — every choice has to mean something.</p>
+        <div class="feat-title">3 connection requests. That's all.</div>
+        <p class="feat-desc">Not 300. Not unlimited. Three. A slot returns only when a connection closes. Every choice you make has to be real — because you can't afford to make it casually.</p>
         <span class="feat-tag"><span class="feat-tag-dot"></span>Live now</span>
       </div>
 
       <!-- Card 4: Intent feed -->
       <div class="feat-card reveal">
         <span class="feat-icon">🎯</span>
-        <div class="feat-title">Your intent. Your feed.</div>
-        <p class="feat-desc">Exploring, Dating with Intent, or Ready for Marriage. Declare it once. Your feed only shows people who want the same thing. No mixed signals before hello.</p>
+        <div class="feat-title">What do you actually want?</div>
+        <p class="feat-desc">Exploring. Dating with Intent. Ready for Marriage. You declare it once, honestly. Your feed only shows people who want the same thing. No guessing. No confusion before hello.</p>
         <span class="feat-tag"><span class="feat-tag-dot"></span>Live now</span>
       </div>
 
       <!-- Card 5: Feed as living profile -->
       <div class="feat-card reveal">
         <span class="feat-icon">📸</span>
-        <div class="feat-title">Show up, not just show off.</div>
-        <p class="feat-desc">Post your achievements, travels, moments. On WYTH your feed isn't for followers — it's seen by people the algorithm thinks could be right for you. Every post makes your match smarter.</p>
+        <div class="feat-title">Your life is the profile.</div>
+        <p class="feat-desc">Post your travels, your wins, your ordinary moments. On WYTH, your feed isn't for followers — it's seen by people the algorithm thinks could be right for you. Every post makes the match sharper.</p>
         <span class="feat-tag"><span class="feat-tag-dot"></span>Live now</span>
       </div>
 
@@ -936,7 +953,7 @@
       <div class="feat-card reveal feat-featured">
         <span class="feat-icon">🤝</span>
         <div class="feat-title">The Introduction.</div>
-        <p class="feat-desc">When the algorithm finds a near-perfect match, it asks them a question on your behalf. No awkward opener. No ghosting. One honest answer — then your move.</p>
+        <p class="feat-desc">When the algorithm finds someone who aligns deeply with you, it asks them a question on your behalf. No awkward opener. No generic "hey." One question. One honest answer. Then your move.</p>
         <span class="feat-tag soon">Coming soon</span>
       </div>
 
@@ -945,25 +962,34 @@
 
   <!-- ─── VS ─── -->
   <div class="vs-section">
-    <p class="vs-title reveal">Every other app got it WRONG</p>
+    <p class="vs-title reveal">Where does WYTH sit?</p>
+    <p class="vs-sub reveal">Not a swipe app. Not a biodata portal. Something the market hasn't built yet.</p>
     <div class="vs-grid reveal">
       <div class="vs-card them">
-        <div class="vs-card-label">❌ Every other app</div>
+        <div class="vs-card-label">❌ Casual Apps</div>
+        <div class="vs-card-sub">Tinder · Bumble · Hinge</div>
         <ul class="vs-list">
-          <li>Infinite SWIPES, Zero VALUE</li>
-          <li>"Hey" × 1000. Ghosted by Day 3.</li>
-          <li>Matrimonial Biodata like a Job Application</li>
-          <li>No one knows what Anyone Wants</li>
+          <li>Infinite swipes, zero intent</li>
+          <li>Ghosted after 3 days of "hey"</li>
+          <li>Optimised to keep you on the app — not find you someone</li>
         </ul>
       </div>
-      <div class="vs-badge">VS</div>
-      <div class="vs-card us">
-        <div class="vs-card-label">✅ WYTH</div>
+      <div class="vs-card us vs-card-center">
+        <div class="vs-card-label">✦ WYTH</div>
         <ul class="vs-list">
-          <li>3 SLOTS, Every Choice Matters.</li>
-          <li>Designed to close connections with dignity</li>
-          <li>Personality over Resume. Always!</li>
-          <li>Intent Declared. No Confusion.</li>
+          <li>3 slots. Every choice costs something</li>
+          <li>Intent declared upfront, no ambiguity</li>
+          <li>Algorithm learns what you value, not just who you like</li>
+          <li>Designed to close — not to keep you scrolling</li>
+        </ul>
+      </div>
+      <div class="vs-card them">
+        <div class="vs-card-label">❌ Traditional Matrimony</div>
+        <div class="vs-card-sub">Shaadi · BharatMatrimony</div>
+        <ul class="vs-list">
+          <li>Resume over personality. Always</li>
+          <li>Family decides before you do</li>
+          <li>Height, salary, lifestyle — before knowing the person</li>
         </ul>
       </div>
     </div>
@@ -974,13 +1000,13 @@
     <div class="research-card reveal">
       <div class="research-left">
         <div class="r-tag"><span class="r-tag-dot"></span> Founding Research · Open Now</div>
-        <h3 class="r-title">You've been ghosted.<br/>You've been biodata-ed.<br/>Is this TRUE?.</h3>
-        <p class="r-desc">3 minutes. We shape the product before it ships.Just for you!</p>
+        <h3 class="r-title">You've been ghosted.<br/>You've been biodata-ed.<br/>We're building the in-between.</h3>
+        <p class="r-desc">3 minutes. Shape what WYTH becomes before it ships.</p>
       </div>
       <div class="research-right">
         <a href="https://docs.google.com/forms/d/e/1FAIpQLScIrJzuRsDkt7y5Ewd909gJYnZ7SKezr5jAsAyQJ_8y9TDfjg/viewform?usp=header"
            target="_blank" rel="noopener noreferrer" class="btn-research">
-          Take the Survey <span class="btn-research-arrow">→</span>
+          Tell us what you've been through <span class="btn-research-arrow">→</span>
         </a>
         <p class="r-note">⏱️ 3 min · Anonymous · Shapes the product</p>
       </div>
@@ -990,9 +1016,9 @@
 
   <!-- ─── JOURNEY TIMELINE ─── -->
   <section class="timeline-section" id="journey">
-    <div class="timeline-label">Your journey on WYTH</div>
-    <h2 class="timeline-title">From hello to forever.</h2>
-    <p class="timeline-sub">No timelines. No pressure. Just a process designed to work — for people who mean it.</p>
+    <div class="timeline-label">How WYTH works</div>
+    <h2 class="timeline-title">No timelines. Just a process.</h2>
+    <p class="timeline-sub">Designed for people who are serious — without making it feel like a job application.</p>
 
     <div class="timeline-track">
       <div class="timeline-dots">
@@ -1002,8 +1028,8 @@
             <div class="tl-dot">✦</div>
             <div class="tl-dot-number">1</div>
           </div>
-          <div class="tl-label">You arrive.</div>
-          <p class="tl-desc">Declare your intent. Answer the weekly prompt. The algorithm starts learning you.</p>
+          <div class="tl-label">You arrive honestly.</div>
+          <p class="tl-desc">Declare your intent. Answer the weekly prompt. The algorithm starts understanding you.</p>
         </div>
 
         <div class="tl-step reveal">
@@ -1011,8 +1037,8 @@
             <div class="tl-dot">💫</div>
             <div class="tl-dot-number">2</div>
           </div>
-          <div class="tl-label">You resonate.</div>
-          <p class="tl-desc">Someone's answer moves you. You resonate. The algorithm notices. Your feed sharpens.</p>
+          <div class="tl-label">You find resonance.</div>
+          <p class="tl-desc">Someone's answer stays with you. You resonate. Your feed shifts toward people who think like you.</p>
         </div>
 
         <div class="tl-step tl-featured reveal">
@@ -1020,8 +1046,8 @@
             <div class="tl-dot" style="color:white;">⚡</div>
             <div class="tl-dot-number">3</div>
           </div>
-          <div class="tl-label">You connect.</div>
-          <p class="tl-desc">You spend a slot. A personal note. A real beginning — not a swipe, a choice.</p>
+          <div class="tl-label">You make a move.</div>
+          <p class="tl-desc">You spend a slot. A personal note. Not a swipe — a choice you've thought about.</p>
         </div>
 
         <div class="tl-step reveal">
@@ -1029,8 +1055,8 @@
             <div class="tl-dot">🤝</div>
             <div class="tl-dot-number">4</div>
           </div>
-          <div class="tl-label">The Introduction.</div>
-          <p class="tl-desc">WYTH asks them something on your behalf. One honest answer. Then your move.</p>
+          <div class="tl-label">WYTH introduces you.</div>
+          <p class="tl-desc">When the match is strong enough, WYTH asks them something on your behalf. One honest answer. Then it's yours.</p>
         </div>
 
         <div class="tl-step reveal">
@@ -1038,7 +1064,7 @@
             <div class="tl-dot">❤️</div>
             <div class="tl-dot-number">5</div>
           </div>
-          <div class="tl-label">It becomes real.</div>
+          <div class="tl-label">It becomes something real.</div>
           <p class="tl-desc">A slot becomes a relationship. The app steps back. You take it from here.</p>
         </div>
 
@@ -1047,8 +1073,8 @@
 
     <div class="timeline-outcome reveal">
       <span class="outcome-emoji">🌿</span>
-      <div class="outcome-title">And then, WYTH Together.</div>
-      <p class="outcome-desc">When you find your person, WYTH doesn't disappear. It transitions into a shared space — milestones, memories, your story. Designed to last, not to keep you scrolling.</p>
+      <div class="outcome-title">And if it becomes forever — WYTH Together.</div>
+      <p class="outcome-desc">When you find your person, WYTH doesn't disappear. It becomes a shared space — your milestones, your story, the next chapter. Built to last, not to keep you scrolling.</p>
     </div>
   </section>
 
@@ -1057,7 +1083,7 @@
     <div class="waitlist-wrapper">
       <p class="wl-label reveal">Early Access</p>
       <h2 class="waitlist-title reveal">This isn't for everyone.<br/>Is it for you?</h2>
-      <p class="waitlist-sub reveal">City-by-city rollout. Get in before your city opens.</p>
+      <p class="waitlist-sub reveal">City-by-city rollout. Delhi NCR is first. Get in before your city opens.</p>
 
       <div class="waitlist-form reveal" id="formWrapper">
         <div class="form-row">
@@ -1076,14 +1102,14 @@
             <option>Noida</option><option>Jaipur</option><option>Chandigarh</option><option>Other</option>
           </select>
         </div>
-        <button class="form-submit" onclick="handleSubmit()">Reserve My Spot →</button>
+        <button class="form-submit" onclick="handleSubmit()">Reserve my spot →</button>
         <p class="form-privacy">🔒 No spam. Ever.</p>
       </div>
 
       <div class="success-state" id="successState">
         <div class="success-icon">🎉</div>
-        <h3 class="success-title">You're on the list.</h3>
-        <p class="success-sub">We'll reach out when your city goes live.<br/>Tell a friend who's done with the chaos.</p>
+        <h3 class="success-title">You're in.</h3>
+        <p class="success-sub">We'll reach out when your city goes live.<br/>Tell someone who's ready too.</p>
       </div>
     </div>
   </div>
@@ -1108,6 +1134,7 @@
       @wyth_app
     </a>
 
+    <p class="footer-tagline">For people who mean it.</p>
     <p class="footer-copy">© 2026 WYTH. All rights reserved.</p>
   </footer>
 
